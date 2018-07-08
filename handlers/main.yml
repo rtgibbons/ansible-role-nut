@@ -1,10 +1,18 @@
 ---
-- name: restart nut
+- name: restart nut driver
   service:
-    name: "{{ item }}"
+    name: nut-driver
     state: restarted
-  with_items:
-    - nut-driver
-    - nut-monitor
-    - nut-server
+  when: nut_enable_service and nut_mode == 'standalone'
+
+- name: restart nut monitor
+  service:
+    name: nut-monitor
+    state: restarted
   when: nut_enable_service
+
+- name: restart nut server
+  service:
+    name: nut-server
+    state: restarted
+  when: nut_enable_service and nut_mode == 'standalone'
