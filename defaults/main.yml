@@ -5,6 +5,7 @@ nut_enable_service: true
 # If this is set to false, none of the following options will have any effect.
 # Any and all changes to /etc/nut/* will be your responsibility.
 nut_managed_config: true
+nut_mode: standalone
 
 nut_host: localhost
 nut_user: monitor
